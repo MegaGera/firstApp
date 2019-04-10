@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Welcome to draw app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Username
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-button  (click)="navToDraw()" color="danger">Let's draw!</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

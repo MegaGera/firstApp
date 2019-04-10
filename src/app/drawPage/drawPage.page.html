@@ -1,0 +1,48 @@
+<script src="jquery.min.js"></script>
+<script src="rangeslider.min.js"></script>
+<script>
+    // Initialize a new plugin instance for all
+    // e.g. $('input[type="range"]') elements.
+    $('input[type="range"]').rangeslider();
+
+    // Destroy all plugin instances created from the
+    // e.g. $('input[type="range"]') elements.
+    $('input[type="range"]').rangeslider('destroy');
+
+    // Update all rangeslider instances for all
+    // e.g. $('input[type="range"]') elements.
+    // Usefull if you changed some attributes e.g. `min` or `max` etc.
+    $('input[type="range"]').rangeslider('update', true);
+</script>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome {{username}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding no-bounce>
+    <ion-card>
+        <ion-card-content (click)="changeColor('#000000')">
+        <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical"/>
+        </ion-card-content>
+        <ion-card-content>
+            <ion-row>
+                <ion-col (click)="changeColor('#000000')"><span class="dot-black"></span></ion-col>
+                <ion-col (click)="changeColor('#D4FF00')"><span class="dot-yellow"></span></ion-col>
+                <ion-col (click)="changeColor('#000FFF')"><span class="dot-blue"></span></ion-col>
+                <ion-col (click)="changeColor('#FF0000')"><span class="dot-red"></span></ion-col>
+                <ion-col (click)="changeColor('#FF8700')"><span class="dot-orange"></span></ion-col>
+            </ion-row>
+            <ion-button color="light" (click)="navHome()">Go Home</ion-button>
+        </ion-card-content>
+    </ion-card>
+    <div ion-fixed>
+        <p class="double">
+            <canvas #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end($event)"></canvas>
+        </p>
+    </div>
+</ion-content>
+
+
+
+
