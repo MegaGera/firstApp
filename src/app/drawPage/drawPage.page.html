@@ -1,19 +1,6 @@
 <script src="jquery.min.js"></script>
-<script src="rangeslider.min.js"></script>
-<script>
-    // Initialize a new plugin instance for all
-    // e.g. $('input[type="range"]') elements.
-    $('input[type="range"]').rangeslider();
-
-    // Destroy all plugin instances created from the
-    // e.g. $('input[type="range"]') elements.
-    $('input[type="range"]').rangeslider('destroy');
-
-    // Update all rangeslider instances for all
-    // e.g. $('input[type="range"]') elements.
-    // Usefull if you changed some attributes e.g. `min` or `max` etc.
-    $('input[type="range"]').rangeslider('update', true);
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <ion-header>
   <ion-toolbar>
     <ion-title>Welcome {{username}}</ion-title>
@@ -22,8 +9,11 @@
 
 <ion-content padding no-bounce>
     <ion-card>
-        <ion-card-content (click)="changeColor('#000000')">
-        <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical"/>
+        <ion-card-content>
+            <div class="range-field">
+                <input type="range" min="1" max="20" step="0.1"
+                       value="5" (input)="changeThickness($event)">
+            </div>
         </ion-card-content>
         <ion-card-content>
             <ion-row>

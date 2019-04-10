@@ -14,6 +14,7 @@ export class drawPage implements OnInit{
   canvasElement: any;
   lastX: number;
   lastY: number;
+  size: number = 5;
   colour = '#000000';
 
   constructor(private route: ActivatedRoute, private router: Router,
@@ -58,7 +59,7 @@ export class drawPage implements OnInit{
     ctx.lineTo(currentX, currentY);
     ctx.closePath();
     ctx.strokeStyle = this.colour;
-    ctx.lineWidth = 5;
+    ctx.lineWidth = this.size;
     ctx.stroke();
 
     this.lastX = currentX;
@@ -67,5 +68,9 @@ export class drawPage implements OnInit{
 
   end(ev){
       console.log(ev);
+  }
+
+  changeThickness(ev){
+    this.size = ev.target.value;
   }
 }
