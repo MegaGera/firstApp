@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild, Renderer2} from '@angular/core';
+import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Platform} from '@ionic/angular';
-import {ActivatedRoute} from '@angular/router';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-drawPage',
@@ -31,10 +30,9 @@ export class drawPage implements OnInit {
         this.renderer.setAttribute(this.canvasElement, 'width', (this.platform.width() * 0.9) + "");
         this.renderer.setAttribute(this.canvasElement, 'height', (this.platform.height() * 0.75) + "");
         this.clearCanvas()
-        let data = this.canvasElement.getContext('2d').getImageData(0,
+        this.history[this.position] = this.canvasElement.getContext('2d').getImageData(0,
             0, this.canvasElement.getBoundingClientRect().width,
             this.canvasElement.getBoundingClientRect().height);
-        this.history[this.position] = data;
         this.position++;
     }
 
@@ -79,10 +77,9 @@ export class drawPage implements OnInit {
 
     end(ev) {
         console.log(ev);
-        let data = this.canvasElement.getContext('2d').getImageData(0,
+        this.history[this.position] = this.canvasElement.getContext('2d').getImageData(0,
             0, this.canvasElement.getBoundingClientRect().width,
             this.canvasElement.getBoundingClientRect().height);
-        this.history[this.position] = data;
         this.position++;
         this.maxPosition = this.position;
 
