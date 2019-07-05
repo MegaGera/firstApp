@@ -45,15 +45,17 @@
 
 <ion-content padding no-bounce>
     <div ion-fixed>
-        <canvas #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end($event)"></canvas>
+        <canvas #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end($event)" width="20" height="20"></canvas>
     </div>
 </ion-content>
 
 <ion-footer>
     <ion-toolbar>
         <ion-button (click)="clearCanvas()">CLEAR</ion-button>
+        <ion-button (click)="save()">SAVE</ion-button>
         <ion-button (click)="undo()">UNDO</ion-button>
         <ion-button (click)="reUndo()">REUNDO</ion-button>
+        <ion-button (click)="takePhoto()"><ion-icon name="camera"></ion-icon></ion-button>
     </ion-toolbar>
 </ion-footer>
 
