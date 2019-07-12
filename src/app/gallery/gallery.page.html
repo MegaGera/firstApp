@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="sliderOptions" [pager]="true" [scrollbar]="true">
+    <ion-slide *ngFor="let pic of pictures">
+      <ion-card>
+        <ion-card-content>
+          <ion-img [src]="pic.path"></ion-img>
+        </ion-card-content>
+        <ion-row text-center>
+          <ion-button (click)="setOnCanvas(pic.path)">Set on Canvas</ion-button>
+          <ion-button color="danger" (click)="remove(pic.name)"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
