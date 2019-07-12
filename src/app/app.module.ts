@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -24,7 +26,8 @@ import { IonicStorageModule } from '@ionic/storage';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AndroidPermissions,
     File,
-    Camera
+    Camera,
+    WebView
   ],
   bootstrap: [AppComponent]
 })

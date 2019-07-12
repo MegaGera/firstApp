@@ -5,6 +5,9 @@
       <ion-buttons slot="start">
           <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" (click)="navGallery()">GALLERY</ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +38,9 @@
                     <ion-col (click)="changeColor('#FF8700')"><span class="dot-orange"></span></ion-col>
                     <ion-col (click)="changeColor('#FFFFFF')"><span class="dot-white"></span></ion-col>
                 </ion-row>
-                <ion-button color="light" (click)="navHome()">Go Home</ion-button>
+                <ion-row>
+                    <ion-button color="light" (click)="navHome()">Go Home</ion-button>
+                </ion-row>
             </ion-card-content>
         </ion-card>
     </ion-content>
@@ -45,17 +50,18 @@
 
 <ion-content padding no-bounce>
     <div ion-fixed>
-        <canvas #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end($event)" width="20" height="20"></canvas>
+        <canvas #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end()" width="20" height="20"></canvas>
     </div>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar>
-        <ion-button (click)="clearCanvas()">CLEAR</ion-button>
+    <ion-toolbar text-center>
+        <ion-button (click)="clearCanvas(1)">CLEAR</ion-button>
         <ion-button (click)="save()">SAVE</ion-button>
-        <ion-button (click)="undo()">UNDO</ion-button>
-        <ion-button (click)="reUndo()">REUNDO</ion-button>
-        <ion-button (click)="takePhoto()"><ion-icon name="camera"></ion-icon></ion-button>
+        <ion-button (click)="undo()"><ion-icon name="arrow-round-back"></ion-icon></ion-button>
+        <ion-button (click)="reUndo()"><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+        <ion-button (click)="takePicture(0)"><ion-icon name="camera"></ion-icon></ion-button>
+        <ion-button (click)="takePicture(1)"><ion-icon name="image"></ion-icon></ion-button>
     </ion-toolbar>
 </ion-footer>
 
